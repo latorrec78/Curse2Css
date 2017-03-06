@@ -1,0 +1,160 @@
+@font-face {
+  font-family: 'Dancing Script', cursive;
+}
+
+.menuprincipal{
+  color: white;
+}
+
+body {
+  font-family:"Dancing Script";
+  background-color: #02010a;
+  display: block;
+  margin: auto;
+}
+/* Cabecera */
+header{
+  background-color: #5b7989;        /*Establece el fondo de color #5b7989. */
+  border-radius: 10px 10px 0px 0px; /*Bordes redondeados esquinas superiores 10px.*/
+  padding: 1% 1% 0% 1%;
+}
+/* Nombre del sitio "Comenzando con la fotografía"*/
+h1{
+  color: white;
+  text-shadow: 2px 2px #02010a;   /*letra blanco, sombra 2px, color #02010a.*/
+}
+
+/* Imagen Cental y Secundario */
+img {border: 1px solid black}
+#img1, #img2, #img3{box-shadow: 2px 2px 2px #02010a;} /*color de sombra #82c3a6 y borde 2px*/
+#img2,#img3 { margin: 3%; }
+
+.imagenCentral {                /*Imagen Central */
+  display: flex;
+  flex-direction: column;
+  background-color: #82c3a6;   /* color de fondo de la imagen central*/
+  text-align: center;          /* Imagen central centrado*/
+  padding: 10px;
+}
+
+.imagenSec {                   /*Imagenes Secundarios */
+  display: flex;
+  /*padding: 10px 0 10px 0;*/
+  background-color: #d5c75f;
+  padding: 10px;
+/*  padding: 10px 8% 10px 8%;*/
+  }
+.imagenSec > div {
+  text-align: center;
+  margin: 5px;
+  width: 100%;
+}
+
+/* EFECTOS para las imagenes del html principal */
+#img2:hover {                 /*efecto rotación 10 grados cuando se coloca el puntero sobre ella*/
+  transition-duration: 0.6s;
+  transform: rotate(10deg);
+  box-shadow: 2px 2px 2px #82c3a6;   /*color de sombra #82c3a6 y borde 2px*/
+}
+
+#img3:hover {                 /*efecto traslación 5px arriba, 20px derecha cuando se coloca el puntero sobre ella*/
+  transition-duration: 0.6s;
+  transform: translate(20px, -5px);
+  box-shadow: 2px 2px 2px #82c3a6;   /*color de sombra #82c3a6 y borde 2px*/
+}
+
+/* PIE DE PAGINA*/
+footer {
+  display: flex;
+  background-color: #C6d5c5;        /*Establece el fondo de color #C6d5c5 */
+  border-radius: 0px 0px 10px 10px; /*Bordes redondeados esquinas superiores 10px.*/
+}
+
+/*  EFECTOS para las imagenes que conforman la galeria */
+.imagenSec img[id*="galeria"] {width: 90%;}
+.imagenSec img[id*="galeria1"] {-webkit-filter: blur(10px); filter: blur(10px);} /* efecto blur 10px*/
+.imagenSec img[id*="galeria2"], .imagenSec img[id*="galeria4"], .imagenSec img[id*="galeria6"]  {-webkit-filter: grayscale(100%); filter: grayscale(100%); } /* efecto escala de grieses 100%*/
+.imagenSec img[id*="galeria3"] {-webkit-filter: sepia(90px); filter: sepia(90%); } /* efecto sepia 90%*/
+
+
+
+
+/* Código para Moviles menores de 900px*/
+@media (max-width:900px) {
+
+  /*  EFECTOS del Header para Móviles*/
+  header{
+    animation-name: slidein;
+    animation-duration: 2s;
+  }
+
+  @-webkit-keyframes slidein {
+    0% {margin-top: 150%;}
+    60% {margin-top: -5%;}
+    100% {margin-top: 0%;}
+  }
+
+  /* Ancho de proyecto en moviles */
+  body {width: 400px;}
+
+  /* Nombre del sitio "Comenzando con la fotografía"*/
+  h1{text-align: center; font-size: 18px;}               /*ubicado al lado izquierdo */
+
+  /* Menú principal */
+  .menuprincipal {text-align: center; font-size: 16px;}
+
+  /* Imagen Cental y Secundario */
+    #img1,#img2,#img3 {width: 80%;}
+    #img2,#img3 {display: table; text-align: center;}
+  .imagenSec {flex-direction: column;}   /*Imagenes Secundarios */
+
+  /* Pie de página */
+  footer {
+    flex-direction: column;
+    margin-left: 0%;
+    font-size: 20px;
+  }
+  .piepagina{
+    font-size: 24px;
+    text-align: center;
+    margin-left: 0%;
+    width: 100%;
+  }
+  .imgredes { width: 25%; margin: 3px }
+}
+
+
+
+/* Código para Desktop mayores a 900px*/
+@media (min-width:900px) {
+  body {width: 900px;}
+
+  /* Nombre del sitio "Comenzando con la fotografía"*/
+  h1{text-align: left; font-size: 36px;}               /*ubicado al lado izquierdo */
+
+  /* Menú principal */
+  .menuprincipal {
+        text-align: right;
+        font-size: 24px;
+  }
+
+  /* Imagen Cental y Secundario */
+    #img1 { width: 60%;}
+    #img2,#img3 {width: 80%; display: table;}
+
+  .imagenSec {flex-direction: row;}   /*Imagenes Secundarios */
+
+  /* Pie de página */
+  footer {
+    flex-direction: row;
+    margin-left: 0%;
+    font-size: 24px;
+  }
+  .piepagina{
+    font-size: 18px;
+    text-align: left;
+    margin-left: 1%;
+    width: 25%;
+  }
+.imgredes { width: 40%; margin: 3px }
+}
